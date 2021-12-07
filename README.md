@@ -48,6 +48,11 @@ Users should be able to:
 
 ### What I learned
 
+- By default some browsers set the opacity value of placeholder text less than unity.
+- There is a pseudo class called 'focus-within' which can be used to focus the div containing say a button element.
+- Used css animation and for the specific use case it was implemented, css transition was not doing the work.
+- Used event delegation and data attribute.
+- Used the useRef hook to select a div element.
 
 ### Continued development
 
