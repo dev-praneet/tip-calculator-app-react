@@ -18,7 +18,7 @@ const Container = styled.div`
             font-size: 0.7rem;
         }
         > :nth-child(2) {
-            color: ${props => props.theme.color.darkGrayishCyan2};
+            color: ${props => props.theme.color.dullCyan};
             font-size: 0.7rem;
         }
     }
@@ -27,13 +27,13 @@ const Container = styled.div`
         align-items: center;
         font-size: 1.5rem;
         font-weight: 700;
-        color: ${props => props.theme.color.lightGrayishCyan1};
-        border: 2px solid blue;
+        color: ${props => props.theme.color.lightCyan};
     }
 `;
 
 type Props = {
     tag: string;
+    amount: number;
 }
 
 const DisplayTab: React.FC<Props> = props => {
@@ -43,7 +43,7 @@ const DisplayTab: React.FC<Props> = props => {
                 <span>{props.tag}</span>
                 <span>/ person</span>
             </div>
-            <div>$4.27</div>
+            <div>${props.amount.toFixed(2)}</div>
         </Container>
     )
 }

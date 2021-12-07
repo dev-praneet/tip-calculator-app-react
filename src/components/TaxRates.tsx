@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
 
 const Container = styled.div`
     display: grid;
@@ -11,7 +11,7 @@ const Container = styled.div`
         }
 `;
         
-const Span = styled.span`
+const SpanContainer = styled.span`
     background-color: ${props => props.theme.color.veryDarkCyan};
     color: ${props => props.theme.color.white};
     display: grid;
@@ -22,18 +22,24 @@ const Span = styled.span`
     transition-duration: 200ms;
     
     &:hover {
-        background-color: ${props => props.theme.color.lightGrayishCyan1};
-        color: unset;
+        cursor: pointer;
+        background-color: ${props => props.theme.color.lightCyan};
+        color: ${props => props.theme.color.hoveredText};
 `;
 
-const Custom = styled.input`
+const Custom = styled.input<{stringOkay: Boolean;}>`
     padding: 0 0.4em;
     border: unset;
     outline: unset;
     direction: rtl;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: ${props => props.theme.color.veryDarkCyan};
+    background-color: ${props => props.theme.color.inputBackground};
 
     &:focus {
-        border: 2px solid ${props => props.theme.color.lightGrayishCyan1};
+        outline: 2px solid ${props => props.theme.color.lightCyan};
     }
 
     &::placeholder {
@@ -41,29 +47,59 @@ const Custom = styled.input`
         font-family: 'Space Mono', monospace;
         font-size: 1.0rem;
         font-weight: 700;
+        color: ${props => props.theme.color.textColor};
+        opacity: 0.7;
     }
 
     &:focus::placeholder {
-        color: white;
+
+    }
+
+    ${
+        props => !props.stringOkay && css`
+        animation: redBorder 500ms ease-in-out;
+        `
     }
 `;
 
-const TaxRates: React.FC = () => {
+const Span: React.FC<{tax: string}> = props => {
 
-    const [customTax, setCustomTax] = useState('');
+    return (
+        <SpanContainer data-tax={props.tax}>
+            {props.tax + '%'} 
+        </SpanContainer>
+    )
+}
+
+const TaxRates: React.FC<{taxPercent: string, setTaxPercent: React.Dispatch<React.SetStateAction<string>>}> = (props) => {
+
+    const [stringOkay, setStringOkay] = useState<Boolean>(true);
+    const testRegex = /[^0-9\.]/;
 
     function taxHandler(event: React.ChangeEvent<HTMLInputElement>) {
-        setCustomTax(event.target.value)
+        if (!testRegex.test(event.target.value)) {
+            props.setTaxPercent(event.target.value)
+        } else {
+            setStringOkay(false);
+            setTimeout(() => {setStringOkay(true)}, 500);
+        }
+    }
+
+    // if I change the type to 'React.MouseEvent' then event.target.innerText throws error. Look up the correct type for this.
+    const clickHandler = (event: any)  => {
+        if (event.target.dataset.tax) {
+            props.setTaxPercent(event.target.dataset.tax)
+        }
     }
 
     return (
-        <Container>
-            <Span>5%</Span>
-            <Span>10%</Span>
-            <Span>15%</Span>
-            <Span>25%</Span>
-            <Span>50%</Span>
-            <Custom type='text' value={customTax} onChange={taxHandler} placeholder='Custom'></Custom>
+        <Container onClick={clickHandler}>
+            <Span tax='5'/>
+            <Span tax='10'/>
+            <Span tax='15'/>
+            <Span tax='25'/>
+            <Span tax='50'/>
+            <Custom type='text' value={props.taxPercent} onChange={taxHandler} placeholder='Custom' stringOkay={stringOkay}></Custom>
         </Container>
     )
 }
