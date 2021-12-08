@@ -11,8 +11,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -27,13 +25,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot_desktop.png)
 
 
 ### Links
 
-- [Solution URL](https://your-solution-url.com)
-- [Live Site URL](https://your-live-site-url.com)
+- [Solution URL](https://github.com/geeky-amat/tip-calculator-app-react)
+- [Live Site URL](https://geeky-amat.github.io/tip-calculator-app-react/)
 
 ## My process
 
@@ -53,11 +51,7 @@ Users should be able to:
 - Used css animation and for the specific use case it was implemented, css transition was not doing the work.
 - Used event delegation and data attribute.
 - Used the useRef hook to select a div element.
-
-### Continued development
-
-
-### Useful resources
+- Even for margin-top given in percentage, the percentage is with respect to the containing block's width and not the height.
 
 
 ## Author
