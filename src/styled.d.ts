@@ -3,14 +3,15 @@ import 'styled-components';
 declare module 'styled-components' {
     export interface DefaultTheme {
         color: {
-            veryDarkCyan: string,
-            inputBackground: string,
-            hoveredInputBackground: string,
+            white: string,
+            veryLightCyan: string,
             lightCyan: string,
+            dullCyan: string,
+            veryDarkCyan: string,
             textColor: string,
             hoveredText: string,
-            dullCyan: string,
-            white: string
+            inputBackground: string,
+            hoveredInputBackground: string,
             },
         breakpoint: {
             mobile: string;
