@@ -116,7 +116,7 @@ function App() {
           <GlobalStyle/>
           <InputBlock>
             <Caption caption='Bill' />
-            <InputField state={billAmount} stateSetter={setBillAmount} personCount={personCount} testRegex={/[^0-9\.]/} alert={false}>
+            <InputField state={billAmount} stateSetter={setBillAmount} personCount={personCount} testRegex={/[^0-9.]/} alert={false}>
               <IconDollar className='svg-images' viewBox='0 0 11 17'/>
             </InputField>
             <Dummy height={{mobile: '2', desktop: '2'}}/>

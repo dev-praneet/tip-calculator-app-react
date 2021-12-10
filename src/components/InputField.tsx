@@ -73,18 +73,20 @@ type Props = {
 const InputField: React.FC<Props> = (props) => {
 
     // find out the specific 'type' for inputRef in the following line
-    const inputRef: any = useRef();
+    const inputRef: any = useRef<HTMLDivElement>();
     const [stringOkay, setStringOkay] = useState<Boolean>(true);
 
+    const dot = /\./g;
     function inputHandler(event: React.ChangeEvent<HTMLInputElement>) {
-        if (props.testRegex.test(event.target.value)) {
-            setStringOkay(false);
-            setTimeout(() => {setStringOkay(true)}, 500);
-        } else {
-            setStringOkay(true);
-            props.stateSetter(event.target.value);
+        const numberOfPeriods = event.target.value.match(dot)?.length || 0;
+            if (props.testRegex.test(event.target.value) || numberOfPeriods > 1) {
+                setStringOkay(false);
+                setTimeout(() => {setStringOkay(true)}, 500);
+            } else {
+
+                props.stateSetter(event.target.value);
+            }
         }
-    }
 
     function focus() {
         inputRef.current.focus();
