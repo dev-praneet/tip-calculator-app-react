@@ -53,6 +53,11 @@ Users should be able to:
 - Used the useRef hook to select a div element.
 - Even for margin-top given in percentage, the percentage is with respect to the containing block's width and not the height.
 
+### Continued development
+
+- There are places where I didn't provide the correct type of the object/variables such as when using the useRef hook. I have to give the correct type.
+- When I give some input in say the total bill field then the cursor comes to the left of the input and the new input is placed at the right. Moreover, the decimal initially comes to the leftmost part and moves to correct place after other digit is input after the decimal. Look up the reason for this behavior.
+- Modify the logic for the custom tax input field so that it does not take more than one period as input.
 
 ## Author
 
