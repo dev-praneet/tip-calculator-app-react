@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/geeky-amat/tip-calculator-app-react)
-- [Live Site URL](https://geeky-amat.github.io/tip-calculator-app-react/)
+- [Solution URL](https://github.com/dev-praneet/tip-calculator-app-react)
+- [Live Site URL](https://dev-praneet.github.io/tip-calculator-app-react/)
 
 ## My process
 
@@ -62,4 +62,4 @@ Users should be able to:
 ## Author
 
 - Frontend Mentor - [@geeky-amat](https://www.frontendmentor.io/profile/geeky-amat)
-- Twitter - [@GeekyAmat](https://www.twitter.com/GeekyAmat)
+- Twitter - [@\_\_dev_praneet\_\_](https://www.twitter.com/__dev_praneet__)
